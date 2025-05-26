@@ -57,10 +57,7 @@ if submit_button:
     st.success(message)
 
 # Pro Version Section
-st.markdown('<div class="pro-version">Pro Version: <a href="https://your-pro-version-link.com" target="_blank">Upgrade Here</a></div>', unsafe_allow_html=True)
+st.markdown('<div class="pro-version">Pro Version: <a href="https://emedit-wapi.netlify.app" target="_blank">Click Here</a></div>', unsafe_allow_html=True)
 
 # Footer
 st.markdown('<div class="footer">Built by Emedit | Powered by Streamlit</div>', unsafe_allow_html=True)
-```
-
-This script turns your weather fetcher into an interactive Streamlit app. The form has a stylish black-bordered box with shadow effects, and there's a Pro Version section linking to an upgrade option. Let me know if you want further refinements! 🚀￼Enter
