@@ -19,8 +19,8 @@ def get_weather(city):
     else:
         return None
 
-# Streamlit App 
-st.set_page_config(page_title="Weather Notifier", page_icon="🌦")
+# Streamlit App
+st.set_page_config(page_title="Weather Notifier | EmeditWeb", page_icon="🌦")
 
 st.markdown(
     """
@@ -60,26 +60,28 @@ with st.form("weather_form"):
     city = st.text_input("Enter city name", key="city")
     submit_button = st.form_submit_button("Get Weather")
 
-if submit_button:
-    weather_info = get_weather(city)
-
-    if weather_info:
-        temp, weather_desc, humidity, wind_speed = weather_info
-
-        st.markdown(f'<div class="green-box">{city} Weather</div>', unsafe_allow_html=True)
-        st.write(f"**Temperature:** {temp}°C")
-        st.write(f"**Weather:** {weather_desc}")
-        st.write(f"**Humidity:** {humidity}%")
-        st.write(f"**Wind Speed:** {wind_speed} m/s")
-
-        if temp> 30:
-            st.success(f"Hey {name}, it's quite hot in {city} today 🌞.")
-        elif temp < 15:
-            st.success(f"Hey {name}, it's chilly in {city}, dress warm 🥶.")
+    if submit_button:
+        if not name or not city:
+            st.error("Please fill in all fields before submitting.")
         else:
-            st.success(f"Hey {name}, the weather in {city} seems pleasant 😊.")
-    else:
-        st.error("City not found! Please try again.")
+            weather_info = get_weather(city)
+            if weather_info:
+                temp, weather_desc, humidity, wind_speed = weather_info
+
+                st.markdown(f'<div class="green-box">{city} Weather</div>', unsafe_allow_html=True)
+                st.write(f"**Temperature:** {temp}°C")
+                st.write(f"**Weather:** {weather_desc}")
+                st.write(f"**Humidity:** {humidity}%")
+                st.write(f"**Wind Speed:** {wind_speed} m/s")
+
+                if temp> 30:
+                    st.success(f"Hey {name}, it's quite hot in {city} today 🌞.")
+                elif temp < 15:
+                    st.success(f"Hey {name}, it's chilly in {city}, dress warm 🥶.")
+                else:
+                    st.success(f"Hey {name}, the weather in {city} seems pleasant 😊.")
+            else:
+                st.error("City not found! Please try again.")
 
 st.markdown('<div class="pro-version">Pro Version: <a href="https://emedit-wapi.netlify.app" target="_blank">Click Here</a></div>', unsafe_allow_html=True)
 
