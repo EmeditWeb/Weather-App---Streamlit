@@ -68,7 +68,7 @@ with st.form("weather_form"):
             if weather_info:
                 temp, weather_desc, humidity, wind_speed = weather_info
                 
-                st.success(f"Weather data for {city}:")
+                st.success(f"Weather data for {city}")
                 st.write(f"**Temperature:** {temp}°C")
                 st.write(f"**Weather:** {weather_desc}")
                 st.write(f"**Humidity:** {humidity}%")
