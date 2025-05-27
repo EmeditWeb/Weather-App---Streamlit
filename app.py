@@ -67,8 +67,8 @@ with st.form("weather_form"):
             weather_info = get_weather(city)
             if weather_info:
                 temp, weather_desc, humidity, wind_speed = weather_info
-
-                st.info(f'<div class="green-box">{city} Weather</div>', unsafe_allow_html=True)
+                
+                st.success(f"Weather data for {city}:"))
                 st.write(f"**Temperature:** {temp}°C")
                 st.write(f"**Weather:** {weather_desc}")
                 st.write(f"**Humidity:** {humidity}%")
